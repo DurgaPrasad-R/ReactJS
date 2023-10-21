@@ -1,0 +1,26 @@
+{
+  "name": "tasks",
+  "version": "1.0.0",
+  "description": "This is my reactjs course",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Durga Prasad",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DurgaPrasad-R/ReactJS.git#main"
+  },
+  "bugs": {
+    "url": "https://github.com/DurgaPrasad-R/ReactJS/issues"
+  },
+  "homepage": "https://github.com/DurgaPrasad-R/ReactJS/tree/main#readme",
+  "devDependencies": {
+    "parcel": "^2.10.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
