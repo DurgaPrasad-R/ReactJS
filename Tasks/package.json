@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "This is my reactjs course",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "author": "Durga Prasad",
@@ -21,6 +23,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0"
   }
 }

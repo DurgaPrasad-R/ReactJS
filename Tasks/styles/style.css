@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: rgb(100, 100, 230);
+}
+
+
+.logo img {
+    width: 80px;
+}
+
+input {
+    height: 40px;
+    font-size: 25px;
+    width: 500px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.person {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
