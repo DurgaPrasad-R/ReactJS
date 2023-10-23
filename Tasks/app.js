@@ -476,17 +476,18 @@ const restaurants = [
 const RestoCard = (props) => {
   return (
     <div className="card-con">
-      {console.log(props)}
-      <img
-        className="card-image"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          props.cloudinaryImageId
-        }
-      />
-      <h2>{props.name}</h2>
+      <div className="image-container">
+        <img
+          className="card-image"
+          src={
+            "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+            props.cloudinaryImageId
+          }
+        />
+      </div>
+      <h3>{props.name}</h3>
       <h3>{props.avgRating} stars</h3>
-      <h5>{props.cuisines}</h5>
+      <h5>{props.cuisines.join(", ")}</h5>
     </div>
   );
 };

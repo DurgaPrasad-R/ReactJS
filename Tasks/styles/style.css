@@ -61,9 +61,14 @@ input {
 
 .card-con img {
     width: 100%;
+    height: 200px;
 }
 
 .card {
     display: flex;
     flex-wrap: wrap;
+}
+
+.image-container {
+    height: 200px;
 }
