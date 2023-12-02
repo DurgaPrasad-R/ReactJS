@@ -4,7 +4,7 @@ const logo = (
     <a href="/">
       <img src="https://static.vecteezy.com/system/resources/previews/009/385/573/non_2x/storefront-clipart-design-illustration-free-png.png" />
     </a>
-    <div className="title"> Food Mantra</div>
+    <div className="title"> Swiggy Lite </div>
   </div>
 );
 const Header = () => {
