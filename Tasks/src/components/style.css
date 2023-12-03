@@ -1,6 +1,4 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
@@ -81,4 +79,12 @@
 .shimmer-card {
     height: 300px;
     background-color: #ccc;
+}
+
+.image1 {
+    width: 300px;
+}
+
+.menu {
+    display: flex;
 }

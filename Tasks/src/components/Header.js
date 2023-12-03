@@ -1,4 +1,5 @@
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 const logo = (
   <div className="logo">
     <a href="/">
@@ -13,9 +14,15 @@ const Header = () => {
       {logo}
       <div className="list-items">
         <ul className="ulist">
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Home</li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
           <li>
             <AiOutlineShoppingCart className="ico" />
           </li>
