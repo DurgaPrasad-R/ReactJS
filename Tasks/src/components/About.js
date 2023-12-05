@@ -1,15 +1,17 @@
 import { Component } from "react";
 import Profile from "./ProfileComponent";
-const About2 = () => {
+import { Outlet } from "react-router-dom";
+const About = () => {
   return (
     <>
+      <Outlet />
       <h1>This is my learning Class 🚀</h1>
       <p>I am learning React </p>
     </>
   );
 };
 
-class About extends Component {
+class About2 extends Component {
   // first class component:-Parent component
   constructor(props) {
     super(props);
@@ -25,7 +27,6 @@ class About extends Component {
       <>
         <h1>This is my learning Class 🚀</h1>
         <p>I am learning React </p>
-        <Profile name={this.state.name} />
       </>
     );
   }
