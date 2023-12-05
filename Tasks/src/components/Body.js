@@ -3,12 +3,8 @@ import RestoCard from "./RestoCard";
 import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-function filterData(searchInp, restaurantList) {
-  const data = restaurantList.filter((restaurant) =>
-    restaurant.info.name.includes(searchInp)
-  );
-  return data;
-}
+import { filterData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -19,7 +15,7 @@ const Body = () => {
   }, []);
   async function getRestaurants() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.690765&lng=83.166629&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.690765&lng=83.166629"
     );
     const json = await data.json();
     // console.log(json);
@@ -29,6 +25,11 @@ const Body = () => {
     setFilteredRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+  }
+
+  const isOffline = useOnline();
+  if (isOffline) {
+    return <h1>You are offline</h1>;
   }
   if (!restaurantList) {
     return <h1>No Data</h1>;

@@ -1,3 +1,4 @@
+import useOnline from "../utils/useOnline";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 const logo = (
@@ -9,11 +10,16 @@ const logo = (
   </div>
 );
 const Header = () => {
+  const isOffline = useOnline(false);
   return (
     <div id="title1" className="header">
       {logo}
       <div className="list-items">
         <ul className="ulist">
+          <li>{isOffline ? "🔴" : "🟢"}</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
           <li>
             <Link to="/about">About Us</Link>
           </li>
@@ -21,7 +27,7 @@ const Header = () => {
             <Link to="/contact">Contact Us</Link>
           </li>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/instamart">Instamart</Link>
           </li>
           <li>
             <AiOutlineShoppingCart className="ico" />
