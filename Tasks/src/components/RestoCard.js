@@ -1,13 +1,40 @@
 import { IMG_CDN_URL } from "../config";
-const RestoCard = ({ name, cloudinaryImageId, cuisines, avgRating }) => {
+const RestoCard = ({
+  name,
+  cloudinaryImageId,
+  areaName,
+  cuisines,
+  avgRating,
+  sla,
+}) => {
   return (
-    <div className="card-con">
-      <div className="image-container">
-        <img className="card-image" src={IMG_CDN_URL + cloudinaryImageId} />
+    <div className="w-56 p-2 m-4 shadow-lg h-[325px] hover:scale-110 transition-transform ease-in-out rounded-lg">
+      <div className="flex justify-center bg-slate-300 rounded-lg">
+        <img className="h-48" src={IMG_CDN_URL + cloudinaryImageId} />
       </div>
-      <h3>{name}</h3>
-      <h3>{avgRating} stars</h3>
-      <h5>{cuisines.join(", ")}</h5>
+      <p className="font-bold">{name}</p>
+      <div className="flex place-content-between">
+        <p className="flex bg-red-400 rounded-md justify-center items-center w-12">
+          <div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="yellow"
+              class="w-5 h-5"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+          {avgRating ? avgRating : "-"}
+        </p>
+        <>{sla.slaString}</>
+      </div>
+      <p>{cuisines.slice(0, 2).join(", ")}..</p>
+      <p>{areaName}</p>
     </div>
   );
 };
