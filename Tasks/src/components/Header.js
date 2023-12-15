@@ -1,9 +1,12 @@
 import useOnline from "../utils/useOnline";
 import { Link } from "react-router-dom";
 import log from "../../images/food_logo.png";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 const logo = <img className="h-20 p-1" src={log} />;
 const Header = () => {
   const isOffline = useOnline(false);
+  const { user } = useContext(UserContext);
   return (
     <div id="title1" className="flex justify-between shadow-lg">
       {logo}
@@ -37,6 +40,7 @@ const Header = () => {
               />
             </svg>
           </li>
+          <li className="mr-8">{user.name}</li>
           <li className="mr-8">Login{isOffline ? "🔴" : "🟢"}</li>
         </ul>
       </div>
