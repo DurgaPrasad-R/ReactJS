@@ -38,23 +38,25 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="m-4 flex justify-center">
-        <input
-          type="text"
-          className="mr-2 p-2 border focus:outline-none w-96"
-          placeholder="Search"
-          value={searchInp}
-          onChange={(e) => setSearchInp(e.target.value)}
-        />
-        <button
-          className="bg-red-400 p-2 rounded-md text-white"
-          onClick={() => {
-            const data = filterData(searchInp, restaurantList);
-            setFilteredRestaurants(data);
-          }}
-        >
-          Search
-        </button>
+      <div>
+        <div className="m-4 flex justify-center">
+          <input
+            type="text"
+            className="mr-2 p-2 focus:outline-none w-96"
+            placeholder="Search"
+            value={searchInp}
+            onChange={(e) => setSearchInp(e.target.value)}
+          />
+          <button
+            className="p-2"
+            onClick={() => {
+              const data = filterData(searchInp, restaurantList);
+              setFilteredRestaurants(data);
+            }}
+          >
+            Search
+          </button>
+        </div>
       </div>
       <div className="flex flex-wrap justify-center">
         {filteredRestaurants.map((restaurant) => {
