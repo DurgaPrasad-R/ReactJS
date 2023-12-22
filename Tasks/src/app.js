@@ -12,19 +12,21 @@ import { RouterProvider, createBrowserRouter, Outlet } from "react-router-dom";
 const Instamart = lazy(() => import("./components/Instamart"));
 const About = lazy(() => import("./components/About"));
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./utils/store";
 const AppLayout = () => {
   const [user, setUser] = useState({
     name: "Durga Prasad",
     email: "durgaprasad@gmail.com",
   });
   return (
-    <>
+    <Provider store={store}>
       <UserContext.Provider value={{ user: user }}>
         <Header />
         <Outlet />
         <Footer />
       </UserContext.Provider>
-    </>
+    </Provider>
   );
 };
 const AppRouter = createBrowserRouter([

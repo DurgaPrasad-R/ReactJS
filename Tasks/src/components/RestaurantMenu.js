@@ -3,8 +3,14 @@ import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
 import { IMG_CDN_URL } from "../config";
 import useRestaurant from "../utils/useRestaurant";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 const RestaurantMenu = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const addFoodItem = (item) => {
+    dispatch(addItem(item));
+  };
   const getRestaurantMenu = useRestaurant(id);
   return !getRestaurantMenu ? (
     <Shimmer />
@@ -83,28 +89,27 @@ const RestaurantMenu = () => {
             mins
           </p>
         </div>
-        <p>
-          <div className="flex w-32 justify-between">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15 8.25H9m6 3H9m3 6l-3-3h1.5a3 3 0 100-6M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            {
-              getRestaurantMenu?.data?.cards[0]?.card?.card?.info
-                ?.costForTwoMessage
-            }
-          </div>
-        </p>
+
+        <div className="flex w-32 justify-between">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M15 8.25H9m6 3H9m3 6l-3-3h1.5a3 3 0 100-6M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          {
+            getRestaurantMenu?.data?.cards[0]?.card?.card?.info
+              ?.costForTwoMessage
+          }
+        </div>
       </div>
       <div>
         <p>
@@ -116,7 +121,20 @@ const RestaurantMenu = () => {
         <ul>
           {Object.values(
             getRestaurantMenu?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[4]?.card?.card?.itemCards.map(
-              (item) => <li key={item.card.info.id}>{item.card.info.name}</li>
+              (item) => (
+                <li
+                  key={item.card.info.id}
+                  className="flex justify-between items-center"
+                >
+                  {item.card.info.name}{" "}
+                  <button
+                    className="p-2 bg-green-100 m-2"
+                    onClick={() => addFoodItem()}
+                  >
+                    Add
+                  </button>
+                </li>
+              )
             )
           )}
         </ul>

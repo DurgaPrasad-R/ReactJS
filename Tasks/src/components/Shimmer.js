@@ -1,18 +1,17 @@
-import "../../index.css";
 const Shimmer = () => {
   return (
     <>
-      <div className="card">
-        <div className="card-con shimmer-card"></div>
-        <div className="card-con shimmer-card"></div>
-        <div className="card-con shimmer-card"></div>
-        <div className="card-con shimmer-card"></div>
-        <div className="card-con shimmer-card"></div>
-        <div className="card-con shimmer-card"></div>
-        <div className="card-con shimmer-card"></div>
-        <div className="card-con shimmer-card"></div>
-        <div className="card-con shimmer-card"></div>
-        <div className="card-con shimmer-card"></div>
+      <div className="flex justify-center items-center w-screen">
+        <div className="w-2/5 bg-red-500"></div>
+        <div className="w-2/5 bg-red-500"></div>
+        <div className="w-2/5 bg-red-500"></div>
+        <div className="w-2/5 bg-red-500"></div>
+        <div className="w-2/5 bg-red-500"></div>
+        <div className="w-2/5 bg-red-500"></div>
+        <div className="w-2/5 bg-red-500"></div>
+        <div className="w-2/5 bg-red-500"></div>
+        <div className="w-2/5 bg-red-500"></div>
+        <div className="w-2/5 bg-red-500"></div>
       </div>
     </>
   );
