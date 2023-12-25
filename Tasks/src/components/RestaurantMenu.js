@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
-import { IMG_CDN_URL } from "../config";
 import useRestaurant from "../utils/useRestaurant";
 import { useDispatch } from "react-redux";
 import { addItem } from "../utils/cartSlice";
@@ -40,23 +38,23 @@ const RestaurantMenu = () => {
           </div>
         </div>
         <div className="text-green-700">
-          <p>
+          <div>
             <div className="flex border-red-200 border justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="lightgreen"
-                class="w-5 h-5"
+                className="w-5 h-5"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
               </svg>
               {getRestaurantMenu?.data?.cards[0]?.card?.card?.info?.avgRating}
             </div>
-          </p>
+          </div>
           <p className="flex border-red-200 border justify-center">
             {
               getRestaurantMenu?.data?.cards[0]?.card?.card?.info
@@ -112,7 +110,7 @@ const RestaurantMenu = () => {
         </div>
       </div>
       <div>
-        <p>
+        <p className=" border-t p-2 m-2 font-bold ">
           {
             getRestaurantMenu?.data?.cards[2]?.groupedCard?.cardGroupMap
               ?.REGULAR?.cards[4].card.card.title
@@ -124,12 +122,41 @@ const RestaurantMenu = () => {
               (item) => (
                 <li
                   key={item.card.info.id}
-                  className="flex justify-between items-center"
+                  className=" border-b p-2 m-2 h-30 flex justify-between items-center"
                 >
-                  {item.card.info.name}{" "}
+                  <div>
+                    <p>{item.card.info.name}</p>
+                    <p className="flex">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6 mr-1"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15 8.25H9m6 3H9m3 6-3-3h1.5a3 3 0 1 0 0-6M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                        />
+                      </svg>
+                      {item.card.info.defaultPrice
+                        ? item.card.info.defaultPrice / 100
+                        : item.card.info.price / 100}
+                      <span className="hidden">
+                        {
+                          ((item.card.info.restaurantName =
+                            getRestaurantMenu?.data?.cards[0]?.card?.card?.info?.name),
+                          (item.card.info.restaurantid =
+                            getRestaurantMenu?.data?.cards[0]?.card?.card?.info?.id))
+                        }
+                      </span>
+                    </p>
+                  </div>
                   <button
-                    className="p-2 bg-green-100 m-2"
-                    onClick={() => addFoodItem()}
+                    className="text-green-600 p-2 m-2 border w-16 rounded-md shadow-md hover:shadow-lg"
+                    onClick={() => addFoodItem(item)}
                   >
                     Add
                   </button>

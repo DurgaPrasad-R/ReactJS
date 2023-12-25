@@ -14,6 +14,7 @@ const About = lazy(() => import("./components/About"));
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import store from "./utils/store";
+import Cart from "./components/Cart";
 const AppLayout = () => {
   const [user, setUser] = useState({
     name: "Durga Prasad",
@@ -68,6 +69,10 @@ const AppRouter = createBrowserRouter([
             <Instamart />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
